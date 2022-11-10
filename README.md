@@ -2,7 +2,7 @@
 ## A barebones implementation of MySQL running in a Docker container.
 ### There are many like it, but this one is mine.
 ------
-# Setting Up Docker
+# Section 1 : Setting Up Docker
 ---
 ## Setup Steps
 - Install Docker Desktop (https://docs.docker.com/engine/install/) or another containerization provider of your choice.
@@ -62,7 +62,7 @@ a semicolon and then hit enter.
 
 ---
 
-# Setting up MySQL Workbench
+# Section 2: Setting up MySQL Workbench
 ## Download and Install
 - Download and install the latest version from Oracle's website. 
   - [Link to the Workbench Download](https://dev.mysql.com/downloads/workbench/)
