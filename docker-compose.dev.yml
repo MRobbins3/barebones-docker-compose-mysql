@@ -6,8 +6,8 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=testpassword
       - MYSQL_DATABASE=gvu_databases
     volumes:
       - mysql_data:/var/lib/mysql

@@ -7,7 +7,7 @@
 - Install Docker Desktop (https://docs.docker.com/engine/install/) or another containerization provider of your choice.
   - One good alternative is Rancher Desktop.
 - WINDOWS USERS:
-  - If you are using Docker Desktop and have a NVidia graphics card, you may want to select the installation option that uses Hyper-V
+  - If you are using Docker Desktop and have a Nvidia graphics card, you may want to select the installation option that uses Hyper-V
     - If you get an error message about "Hardware assisted virtualization":
     - [This Stack Overflow article proved useful](https://stackoverflow.com/questions/39684974/docker-for-windows-error-hardware-assisted-virtualization-and-data-execution-p). 
 ---
@@ -43,8 +43,13 @@ that are only used locally.
 a semicolon and then hit enter.
 ---
 ## Adding Test Data to the Database from a file
-- First, we need to tell MySQL which database we are using. The database name is defined around line 8 of docker-compose.yml
-  - `USE gvu_databases;`
+- If you are still in the mysql command line, use `exit` to get back to the bash shell.
 - Files in the `setup_scripts` directory are accessible inside our container because we mounted them in the docker-compose.yml file.
 - To load a file, use the following command, where the argument after the `<` symbol is the sql file you want to load.
-  - `-uroot -p gvu_databases < school.sql/school.sql`
+  - `mysql -uroot -p gvu_databases < school.sql/school.sql`
+
+### Ensure the data loaded
+-  First, we need to tell MySQL which database we are using. The database name is defined around line 8 of docker-compose.yml
+> `USE gvu_databases;`
+- Next, run the command to list all tables.
+> `SHOW TABLES;`
