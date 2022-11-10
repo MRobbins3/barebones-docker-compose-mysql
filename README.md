@@ -16,6 +16,7 @@
 - BEFORE you create the container, be sure to add any desired setup files to the setup_scripts directory.
 - From the root of the project, run 
 > docker compose up -d
+- Breaking down the parts of the command...
   - The `-d` flag is optional, and is used to run in detached mode, (to not keep the command line tied up.)
   - The first time it runs, it will pull and download a docker image made for MySQL
     - You should see a message that looks something like this:
@@ -28,16 +29,18 @@
 #### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
 - Once your Docker container is up and running, use the following command to enter it.
 > docker exec -it barebones-docker-compose-mysql-db-1 bash
+- Breaking down the parts of the command...
   - `docker exec` allows us to interact with the running container. 
   - `-it` makes the interaction continuous.
   - Substitute `barebones-docker-compose-mysql-db-1` with whatever name Docker gave your container. (This can be found using `docker ps`).
   - `bash` gives us a bash shell once we are inside the container.
 - Now that we are inside the container, we can connect to MySQL with the following command. 
-  > mysql -uroot -proot
-    - `-u` and `-p` pass the username and password, respectively (and should not have a space before the argument). By 
+> mysql -uroot -proot
+- Explanation of this command...
+  - `-u` and `-p` pass the username and password, respectively (and should not have a space before the argument). By 
 default, in the docker-compose file, we have them set to be "root" and "root". This is a common pattern for databases 
 that are only used locally. 
-    - If, somehow, you have come across this tutorial for more serious work, don't do this in prod.
+  - If, somehow, you have come across this tutorial for more serious work, don't do this in prod.
   - If this username and password combination is successful, you should now see a command line prompt that leads with `mysql> `
   - Run the query `SHOW DATABASES;`
     - This will show all databases that have been created, and is a good way to check that your access is set up correctly.
