@@ -1,7 +1,8 @@
 # barebones-docker-compose-mysql
 ## A barebones implementation of MySQL running in a Docker container.
 ### There are many like it, but this one is mine.
-
+------
+# Setting Up Docker
 ---
 ## Setup Steps
 - Install Docker Desktop (https://docs.docker.com/engine/install/) or another containerization provider of your choice.
@@ -58,3 +59,22 @@ a semicolon and then hit enter.
 > USE gvu_databases;
 - Next, run the command to list all tables.
 > SHOW TABLES;
+
+---
+
+# Setting up MySQL Workbench
+## Download and Install
+- Download and install the latest version from Oracle's website. 
+  - [Link to the Workbench Download](https://dev.mysql.com/downloads/workbench/)
+  - They make it hard to find, but you don't need to pay and you don't need to sign up for an account.
+  - You also only need the Workbench, you don't need "All MySQL Products"
+
+## Connecting MySQL to Docker Container
+- Make sure your docker container is running (see previous section.)
+- In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
+- The connection settings can be found in the dockercompose.yml file.
+   - Unless you changed them, they are here:
+     - Hostname: 127.0.0.1
+     - Port: 3306
+     - Username: user
+     - Password: password
