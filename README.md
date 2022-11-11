@@ -7,6 +7,7 @@
 ## Setup Steps
 - Install Docker Desktop (https://docs.docker.com/engine/install/) or another containerization provider of your choice.
   - One good alternative is Rancher Desktop.
+- Clone this repository.
 - WINDOWS USERS:
   - If you are using Docker Desktop and have a Nvidia graphics card, you may want to select the installation option that uses Hyper-V
     - If you get an error message about "Hardware assisted virtualization":
