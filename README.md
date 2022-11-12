@@ -11,7 +11,7 @@
   - You do not need to enable Kubernetes
   - Be sure to select `dockerd (moby)` as your Container Runtime.
   
-### Docker Desktop
+### Docker Desktop (you only need either Rancher Desktop OR Docker Desktop, not both).
 - Install Docker Desktop (https://docs.docker.com/engine/install/)
 - WINDOWS USERS:
   - If you are using Docker Desktop and have a Nvidia graphics card, you may want to select the installation option that uses Hyper-V
