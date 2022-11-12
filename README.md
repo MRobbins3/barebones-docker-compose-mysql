@@ -1,6 +1,6 @@
-# barebones-docker-compose-mysql
-## A barebones implementation of MySQL running in a Docker container.
-### There are many like it, but this one is mine.
+# GVU-databases-docker-mysql
+## A barebones implementation of MySQL running in a Docker container, for use by the database course at GVU.
+### There are many like it, but this one is ours. 
 ------
 # Section 1 : Setting Up Docker
 ---
