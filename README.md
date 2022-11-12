@@ -31,6 +31,21 @@
 - In a new terminal, run the command 
 > `docker ps`
   - This shows a list of running docker containers. You should see our docker container listed there.
+
+### Troubleshooting
+#### Windows: "Docker error - the docker daemon is not running"
+- This is an error you might see if the Windows Subsystem for Linux is not running on your machine. 
+- The full debugging steps are [available on this site](https://linuxhint.com/resolve-docker-daemon-not-running/) and outlined below
+  - Open Powershell as an Administrator
+  - Check the docker version using `docker --version` to ensure Windows can run docker commands
+  - Run `docker run hello-world` 
+    - If you get an error about the docker daemon, do the following: 
+    - Check the Docker Desktop Service in Services->Local-> Docker Desktop Service (make sure the status is "Running")
+    - If the status is already "Running", you need to install / install the WSL 
+    - [WSL Update from Microsoft](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+    - Restart, then go back to the beginning of this debugging section and try again.
+      - If `docker run hello-world` prints properly, you are good to go to try `docker compose up -d`
+
 ---
 ## Accessing MySQL inside the Docker Container
 - (This is optional, it is simply a good way to ensure your container is running properly when setting it up for the first time.)
