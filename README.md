@@ -102,3 +102,8 @@ a semicolon and then hit enter.
      - Port: 3306
      - Username: user
      - Password: password
+   - I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
+     - Hostname: 127.0.0.1
+     - Port: 3306
+     - Username: root
+     - Password: root
