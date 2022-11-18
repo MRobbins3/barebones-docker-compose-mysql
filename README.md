@@ -6,6 +6,7 @@
 
 <details>
 	<summary><h2> Option 1: Docker </h2></summary>
+
 - Clone this repository.
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
@@ -38,6 +39,7 @@
 
 <details>
 	<summary><h3> Troubleshooting </h3></summary>
+
 ### Windows: "Docker error - the docker daemon is not running"
 - This is an error you might see if the Windows Subsystem for Linux is not running on your machine. 
 - The full debugging steps are [available on this site](https://linuxhint.com/resolve-docker-daemon-not-running/) and outlined below
@@ -56,6 +58,7 @@
   
 <details>
 	<summary><h2> Manually Testing Proper Setup to the Docker Container </h2></summary>
+
 ## Accessing MySQL inside the Docker Container
 - (This is optional, it is simply a good way to ensure your container is running properly when setting it up for the first time.)
 ### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
@@ -78,9 +81,10 @@
 </details>
 
 ---
-  
+
 <details>
 	<summary><h2> Adding Test Data to the Database from a file </h2></summary>
+
 ### Data Load
 - (This is optional, you can manually insert the data by copy-pasting from the SQL file into MySQL Workbench.)
 - If you are still in the MySql command line, use `exit` to get back to the bash shell.
@@ -98,12 +102,13 @@
 </details>
 	
 ---
+
 <details>
 	<summary><h2> Option 2: MySQL Server </h2></summary>
-### Downloading and Installing MySQL Server 
 
+### Downloading and Installing MySQL Server 
 - Download the MySQL Installer 8.0.31
-	- https://dev.mysql.com/downloads/installer/ 
+  - https://dev.mysql.com/downloads/installer/ 
   - The version I chose was: (mysql-installer-web-community-8.0.31.0.msi)
 
 - After it downloads, launch it and then on the right side, under the Wrench icon, Click “Add” 
@@ -140,9 +145,9 @@
 ---
 
 # Section 2: Setting up MySQL Workbench
-
 <details>
-	<summary><h2> Download and Install </h2></summary>
+	<summary><h2> Download and Install </h2></summary
+
 - Download and install the latest version from Oracle's website. 
   - [Link to the Workbench Download](https://dev.mysql.com/downloads/workbench/)
   - They make it hard to find, but you don't need to pay and you don't need to sign up for an account.
@@ -153,34 +158,34 @@
 
 <details>
 	<summary><h2> Option 1: Connecting MySQL to Docker Container </h2></summary>
+
 ### Ensure Docker is Running
 - Make sure your docker container is running (see previous section.)
   - After initial setup, this should be as easy as running `docker compose up -d
 ### Connect on Workbench
 - In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
-- The connection settings can be found in the dockercompose.yml file.
-- Unless you changed them, they are here:
-```
-- Hostname: 127.0.0.1
-- Port: 3306
-- Username: user
-- Password: password
-```
-- I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
-```
-- Hostname: 127.0.0.1
-- Port: 3306
-- Username: root
-- Password: root
-```
-
+  - The connection settings can be found in the dockercompose.yml file.
+  - Unless you changed them, they are here:
+    ```
+    - Hostname: 127.0.0.1
+    - Port: 3306
+    - Username: user
+    - Password: password
+    ```
+  - I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
+    ```
+    - Hostname: 127.0.0.1
+    - Port: 3306
+    - Username: root
+    - Password: root
+    ```
 </details>
 
 ---
 	
 <details>
 	<summary><h2> Option 2: Starting and Connecting to MySQL Server </h2></summary>
-  
+
 - To start the server you installed in Step 1…
 - Make sure the MySQL Service is running. This will be the case, unless you disabled it during installation. 
 	- To start the MySQL Service, if you did disable this 
