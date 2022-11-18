@@ -140,7 +140,7 @@ a semicolon and then hit enter.
 ---
 
 <details>
-	<summary><h2> Connecting MySQL to Docker Container </h2></summary>
+	<summary><h2> Option 1: Connecting MySQL to Docker Container </h2></summary>
 - Make sure your docker container is running (see previous section.)
   - After initial setup, this should be as easy as running `docker compose up -d`
 - In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
@@ -160,7 +160,7 @@ a semicolon and then hit enter.
 ---
 	
 <details>
-	<summary><h2> Starting and Connecting to MySQL Server </h2></summary>
+	<summary><h2> Option 2: Starting and Connecting to MySQL Server </h2></summary>
   
 - To start the server you installed in Step 1…
 - Make sure the MySQL Service is running. This will be the case, unless you disabled it during installation. 
