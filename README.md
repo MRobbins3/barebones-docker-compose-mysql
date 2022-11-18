@@ -6,7 +6,7 @@
 ---
 
 <details>
-	<summary>## Option 1 : Docker</summary>
+	<summary><h2> Option 1 : Docker </h2></summary>
 - Clone this repository.
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
@@ -89,7 +89,7 @@ a semicolon and then hit enter.
 	
 ---
 <details>
-	<summary## Option 2 - MySQL Server</summary>
+	<summary><h2> Option 2 - MySQL Server </h2></summary>
 ## Option 2 - MySQL Server
 ### Downloading and Installing MySQL Server 
 
