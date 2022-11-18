@@ -1,9 +1,10 @@
 # GVU-databases-docker-mysql
-## A barebones implementation of MySQL running in a Docker container, for use by the database course at GVU.
+## Instructions on how to get MySQL up and running, for use by the database course at GVU.
 ### There are many like it, but this one is ours. 
 ------
-# Section 1 : Setting Up Docker
+# Section 1 : Setting Up The Database
 ---
+## Option 1 : Docker
 - Clone this repository.
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
@@ -84,6 +85,44 @@ a semicolon and then hit enter.
 > `SHOW TABLES;`
 
 ---
+## Option 2 - MySQL Server
+### Downloading and Installing MySQL Server 
+
+- Download the MySQL Installer 8.0.31
+	- https://dev.mysql.com/downloads/installer/ 
+  - The version I chose was: (mysql-installer-web-community-8.0.31.0.msi)
+
+- After it downloads, launch it and then on the right side, under the Wrench icon, Click “Add” 
+
+- Choose MySQL Servers -> MySQL Server -> MySQL Server 8.0 -> MySQL Server 8.0.31 …
+	- There may be more version information after the 31.
+  - This will download the server portion of the MySQL Workbench. 
+
+- After the download finishes, continue to Install
+- After Installation finishes, you will be ready to configure your server
+
+### Configuring the Server
+
+	- Leave the defaults for “Type and Networking” and “Authentication Method” screens
+	- In “Accounts and Roles” set the Root Account Password to “root” (no quotes).
+		- Also, add a user with the following:
+        ```
+        Username: user
+        Host: <All Hosts (%)>
+        Role: DB Admin
+        Password: password
+        ```
+
+- In the "Windows Service" screen, leave the settings all as default EXCEPT
+	- If you want, you can disable “Start the MySQL Server at System Startup”. 
+	- I would leave this running, unless you are comfortable going into the msc and starting/stopping services, or using the command line.
+
+- "Server File Permissions" - leave at default
+- "Apply Configuration" - You have to hit the “Execute” button here to create the server we’ve been configuring.
+
+- Restart your computer.
+
+---
 
 # Section 2: Setting up MySQL Workbench
 ## Download and Install
@@ -107,3 +146,18 @@ a semicolon and then hit enter.
      - Port: 3306
      - Username: root
      - Password: root
+ 
+## Starting and Connecting to MySQL Server
+- To start the server you installed in Step 1…
+- Make sure the MySQL Service is running. This will be the case, unless you disabled it during installation. 
+	- To start the MySQL Service, if you did disable this 
+		- Open run, type in services.msc, look for “MySQL80” (unless you renamed it). Select the service, and click run.
+		- Or, open a terminal and use this command. ` C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld `
+
+- In the MySQL Workbench, create a new MySQL Connection
+	- Give the connection a good name, enter the username and password you want to use.
+	- Hit “test connection” and if it finds it, you’re good to go. 
+
+- Click the connection you just created to get to a Query Tab.
+
+- If you’re having trouble with the connection at any point, you can go to Server -> Server Status to check and see if it is still up and running. 
