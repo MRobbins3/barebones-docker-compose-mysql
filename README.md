@@ -38,7 +38,7 @@
 
 <details>
 	<summary><h3> Troubleshooting </h3></summary>
-#### Windows: "Docker error - the docker daemon is not running"
+### Windows: "Docker error - the docker daemon is not running"
 - This is an error you might see if the Windows Subsystem for Linux is not running on your machine. 
 - The full debugging steps are [available on this site](https://linuxhint.com/resolve-docker-daemon-not-running/) and outlined below
   - Open Powershell as an Administrator
@@ -58,7 +58,7 @@
 	<summary><h2> Manually Testing Proper Setup to the Docker Container </h2></summary>
 ## Accessing MySQL inside the Docker Container
 - (This is optional, it is simply a good way to ensure your container is running properly when setting it up for the first time.)
-#### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
+### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
 - Once your Docker container is up and running, use the following command to enter it.
 > `docker exec -it barebones-docker-compose-mysql-db-1 bash`
 - Breaking down the parts of the command...
@@ -116,16 +116,15 @@
 - After Installation finishes, you will be ready to configure your server
 
 ### Configuring the Server
-
-	- Leave the defaults for “Type and Networking” and “Authentication Method” screens
-	- In “Accounts and Roles” set the Root Account Password to “root” (no quotes).
-		- Also, add a user with the following:
-        ```
-        Username: user
-        Host: <All Hosts (%)>
-        Role: DB Admin
-        Password: password
-        ```
+- Leave the defaults for “Type and Networking” and “Authentication Method” screens
+- In “Accounts and Roles” set the Root Account Password to “root” (no quotes).
+  - Also, add a user with the following:
+      ```
+      Username: user
+      Host: <All Hosts (%)>
+      Role: DB Admin
+      Password: password
+      ```
 
 - In the "Windows Service" screen, leave the settings all as default EXCEPT
 	- If you want, you can disable “Start the MySQL Server at System Startup”. 
