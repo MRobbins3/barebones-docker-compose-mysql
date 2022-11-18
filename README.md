@@ -2,10 +2,10 @@
 ## Instructions on how to get MySQL up and running, for use by the database course at GVU.
 ### There are many like it, but this one is ours. 
 ------
-# Section 1 : Setting Up The Database
+# Section 1: Setting Up The Database
 
 <details>
-	<summary><h2> Option 1 : Docker </h2></summary>
+	<summary><h2> Option 1: Docker </h2></summary>
 - Clone this repository.
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
@@ -34,7 +34,10 @@
 > `docker ps`
   - This shows a list of running docker containers. You should see our docker container listed there.
 
-### Troubleshooting
+---
+
+<details>
+	<summary><h3> Troubleshooting </h3></summary>
 #### Windows: "Docker error - the docker daemon is not running"
 - This is an error you might see if the Windows Subsystem for Linux is not running on your machine. 
 - The full debugging steps are [available on this site](https://linuxhint.com/resolve-docker-daemon-not-running/) and outlined below
@@ -47,8 +50,12 @@
     - [WSL Update from Microsoft](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
     - Restart, then go back to the beginning of this debugging section and try again.
       - If `docker run hello-world` prints properly, you are good to go to try `docker compose up -d`
+</details>
 
 ---
+  
+<details>
+	<summary><h2> Manually Testing Proper Setup to the Docker Container </h2></summary>
 ## Accessing MySQL inside the Docker Container
 - (This is optional, it is simply a good way to ensure your container is running properly when setting it up for the first time.)
 #### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
@@ -62,17 +69,19 @@
 - Now that we are inside the container, we can connect to MySQL with the following command. 
 > `mysql -uroot -proot`
 - Explanation of this command...
-  - `-u` and `-p` pass the username and password, respectively (and should not have a space before the argument). By 
-default, in the docker-compose file, we have them set to be "root" and "root". This is a common pattern for databases 
-that are only used locally. 
+  - `-u` and `-p` pass the username and password, respectively (and should not have a space before the argument). By default, in the docker-compose file, we have them set to be "root" and "root". This is a common pattern for databases that are only used locally. 
   - If, somehow, you have come across this tutorial for more serious work, don't do this in prod.
   - If this username and password combination is successful, you should now see a command line prompt that leads with `mysql> `
   - Run the query `SHOW DATABASES;`
     - This will show all databases that have been created, and is a good way to check that your access is set up correctly.
-    - Note: Be sure to include the semicolon, or the query will wait for you to enter the next line. If that happens, just enter 
-a semicolon and then hit enter.
+    - Note: Be sure to include the semicolon, or the query will wait for you to enter the next line. If that happens, just enter a semicolon and then hit enter.
+</details>
+
 ---
-## Adding Test Data to the Database from a file
+  
+<details>
+	<summary><h2> Adding Test Data to the Database from a file </h2></summary>
+### Data Load
 - (This is optional, you can manually insert the data by copy-pasting from the SQL file into MySQL Workbench.)
 - If you are still in the MySql command line, use `exit` to get back to the bash shell.
 - Files in the `setup_scripts` directory are accessible inside our container because we mounted them in the docker-compose.yml file.
@@ -84,11 +93,13 @@ a semicolon and then hit enter.
 > `USE gvu_databases;`
 - Next, run the next command to list all tables.
 > `SHOW TABLES;`
+  </details>
+  
 </details>
 	
 ---
 <details>
-	<summary><h2> Option 2 - MySQL Server </h2></summary>
+	<summary><h2> Option 2: MySQL Server </h2></summary>
 ### Downloading and Installing MySQL Server 
 
 - Download the MySQL Installer 8.0.31
