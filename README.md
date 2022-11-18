@@ -140,20 +140,22 @@
 ---
 
 # Section 2: Setting up MySQL Workbench
-  
-## Download and Install
+
+<details>
+	<summary><h2> Download and Install </h2></summary>
 - Download and install the latest version from Oracle's website. 
   - [Link to the Workbench Download](https://dev.mysql.com/downloads/workbench/)
   - They make it hard to find, but you don't need to pay and you don't need to sign up for an account.
   - You also only need the Workbench, you don't need "All MySQL Products"
-
+</details>
+  
 ---
 
 <details>
 	<summary><h2> Option 1: Connecting MySQL to Docker Container </h2></summary>
 ### Ensure Docker is Running
 - Make sure your docker container is running (see previous section.)
-  - After initial setup, this should be as easy as running `docker compose up -d`
+  - After initial setup, this should be as easy as running `docker compose up -d
 ### Connect on Workbench
 - In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
 - The connection settings can be found in the dockercompose.yml file.
