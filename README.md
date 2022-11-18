@@ -3,7 +3,6 @@
 ### There are many like it, but this one is ours. 
 ------
 # Section 1 : Setting Up The Database
----
 
 <details>
 	<summary><h2> Option 1 : Docker </h2></summary>
@@ -138,6 +137,8 @@ a semicolon and then hit enter.
   - They make it hard to find, but you don't need to pay and you don't need to sign up for an account.
   - You also only need the Workbench, you don't need "All MySQL Products"
 
+---
+
 <details>
 	<summary><h2> Connecting MySQL to Docker Container </h2></summary>
 - Make sure your docker container is running (see previous section.)
@@ -156,6 +157,8 @@ a semicolon and then hit enter.
      - Password: root
 </details>
 
+---
+	
 <details>
 	<summary><h2> Starting and Connecting to MySQL Server </h2></summary>
   
