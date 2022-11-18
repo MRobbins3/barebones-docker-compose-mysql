@@ -4,7 +4,9 @@
 ------
 # Section 1 : Setting Up The Database
 ---
-## Option 1 : Docker
+
+<details>
+	<summary>## Option 1 : Docker</summary>
 - Clone this repository.
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
@@ -83,8 +85,11 @@ a semicolon and then hit enter.
 > `USE gvu_databases;`
 - Next, run the next command to list all tables.
 > `SHOW TABLES;`
-
+</details>
+	
 ---
+<details>
+	<summary## Option 2 - MySQL Server</summary>
 ## Option 2 - MySQL Server
 ### Downloading and Installing MySQL Server 
 
@@ -160,4 +165,5 @@ a semicolon and then hit enter.
 
 - Click the connection you just created to get to a Query Tab.
 
-- If you’re having trouble with the connection at any point, you can go to Server -> Server Status to check and see if it is still up and running. 
+- If you’re having trouble with the connection at any point, you can go to Server -> Server Status to check and see if it is still up and running.
+	</details>
