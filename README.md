@@ -2,11 +2,11 @@
 ## Instructions on how to get MySQL up and running, for use by the database course at GVU.
 ### There are many like it, but this one is ours. 
 ------
-# Section 1 : Setting Up The Database
----
+# Section 1: Setting Up The Database
 
 <details>
-	<summary>## Option 1 : Docker</summary>
+	<summary><h2> Option 1: Docker </h2></summary>
+
 - Clone this repository.
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
@@ -35,8 +35,12 @@
 > `docker ps`
   - This shows a list of running docker containers. You should see our docker container listed there.
 
-### Troubleshooting
-#### Windows: "Docker error - the docker daemon is not running"
+---
+
+<details>
+	<summary><h3> Troubleshooting </h3></summary>
+
+### Windows: "Docker error - the docker daemon is not running"
 - This is an error you might see if the Windows Subsystem for Linux is not running on your machine. 
 - The full debugging steps are [available on this site](https://linuxhint.com/resolve-docker-daemon-not-running/) and outlined below
   - Open Powershell as an Administrator
@@ -48,11 +52,16 @@
     - [WSL Update from Microsoft](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
     - Restart, then go back to the beginning of this debugging section and try again.
       - If `docker run hello-world` prints properly, you are good to go to try `docker compose up -d`
+</details>
 
 ---
+  
+<details>
+	<summary><h2> Manually Testing Proper Setup to the Docker Container </h2></summary>
+
 ## Accessing MySQL inside the Docker Container
 - (This is optional, it is simply a good way to ensure your container is running properly when setting it up for the first time.)
-#### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
+### I followed [Mahbub Zaman's tutorial](https://towardsdatascience.com/how-to-run-mysql-using-docker-ed4cebcd90e4) for a good part of the docker compose portion.
 - Once your Docker container is up and running, use the following command to enter it.
 > `docker exec -it barebones-docker-compose-mysql-db-1 bash`
 - Breaking down the parts of the command...
@@ -63,17 +72,20 @@
 - Now that we are inside the container, we can connect to MySQL with the following command. 
 > `mysql -uroot -proot`
 - Explanation of this command...
-  - `-u` and `-p` pass the username and password, respectively (and should not have a space before the argument). By 
-default, in the docker-compose file, we have them set to be "root" and "root". This is a common pattern for databases 
-that are only used locally. 
+  - `-u` and `-p` pass the username and password, respectively (and should not have a space before the argument). By default, in the docker-compose file, we have them set to be "root" and "root". This is a common pattern for databases that are only used locally. 
   - If, somehow, you have come across this tutorial for more serious work, don't do this in prod.
   - If this username and password combination is successful, you should now see a command line prompt that leads with `mysql> `
   - Run the query `SHOW DATABASES;`
     - This will show all databases that have been created, and is a good way to check that your access is set up correctly.
-    - Note: Be sure to include the semicolon, or the query will wait for you to enter the next line. If that happens, just enter 
-a semicolon and then hit enter.
+    - Note: Be sure to include the semicolon, or the query will wait for you to enter the next line. If that happens, just enter a semicolon and then hit enter.
+</details>
+
 ---
-## Adding Test Data to the Database from a file
+
+<details>
+	<summary><h2> Adding Test Data to the Database from a file </h2></summary>
+
+### Data Load
 - (This is optional, you can manually insert the data by copy-pasting from the SQL file into MySQL Workbench.)
 - If you are still in the MySql command line, use `exit` to get back to the bash shell.
 - Files in the `setup_scripts` directory are accessible inside our container because we mounted them in the docker-compose.yml file.
@@ -85,16 +97,18 @@ a semicolon and then hit enter.
 > `USE gvu_databases;`
 - Next, run the next command to list all tables.
 > `SHOW TABLES;`
+  </details>
+  
 </details>
 	
 ---
-<details>
-	<summary## Option 2 - MySQL Server</summary>
-## Option 2 - MySQL Server
-### Downloading and Installing MySQL Server 
 
+<details>
+	<summary><h2> Option 2: MySQL Server </h2></summary>
+
+### Downloading and Installing MySQL Server 
 - Download the MySQL Installer 8.0.31
-	- https://dev.mysql.com/downloads/installer/ 
+  - https://dev.mysql.com/downloads/installer/ 
   - The version I chose was: (mysql-installer-web-community-8.0.31.0.msi)
 
 - After it downloads, launch it and then on the right side, under the Wrench icon, Click “Add” 
@@ -107,16 +121,15 @@ a semicolon and then hit enter.
 - After Installation finishes, you will be ready to configure your server
 
 ### Configuring the Server
-
-	- Leave the defaults for “Type and Networking” and “Authentication Method” screens
-	- In “Accounts and Roles” set the Root Account Password to “root” (no quotes).
-		- Also, add a user with the following:
-        ```
-        Username: user
-        Host: <All Hosts (%)>
-        Role: DB Admin
-        Password: password
-        ```
+- Leave the defaults for “Type and Networking” and “Authentication Method” screens
+- In “Accounts and Roles” set the Root Account Password to “root” (no quotes).
+  - Also, add a user with the following:
+      ```
+      Username: user
+      Host: <All Hosts (%)>
+      Role: DB Admin
+      Password: password
+      ```
 
 - In the "Windows Service" screen, leave the settings all as default EXCEPT
 	- If you want, you can disable “Start the MySQL Server at System Startup”. 
@@ -127,32 +140,52 @@ a semicolon and then hit enter.
 
 - Restart your computer.
 
+</details>
+
 ---
 
 # Section 2: Setting up MySQL Workbench
-## Download and Install
+<details>
+	<summary><h2> Download and Install </h2></summary
+
 - Download and install the latest version from Oracle's website. 
   - [Link to the Workbench Download](https://dev.mysql.com/downloads/workbench/)
   - They make it hard to find, but you don't need to pay and you don't need to sign up for an account.
   - You also only need the Workbench, you don't need "All MySQL Products"
+</details>
+  
+---
 
-## Connecting MySQL to Docker Container
+<details>
+	<summary><h2> Option 1: Connecting MySQL to Docker Container </h2></summary>
+
+### Ensure Docker is Running
 - Make sure your docker container is running (see previous section.)
-  - After initial setup, this should be as easy as running `docker compose up -d`
+  - After initial setup, this should be as easy as running `docker compose up -d
+### Connect on Workbench
 - In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
-- The connection settings can be found in the dockercompose.yml file.
-   - Unless you changed them, they are here:
-     - Hostname: 127.0.0.1
-     - Port: 3306
-     - Username: user
-     - Password: password
-   - I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
-     - Hostname: 127.0.0.1
-     - Port: 3306
-     - Username: root
-     - Password: root
- 
-## Starting and Connecting to MySQL Server
+  - The connection settings can be found in the dockercompose.yml file.
+  - Unless you changed them, they are here:
+    ```
+    - Hostname: 127.0.0.1
+    - Port: 3306
+    - Username: user
+    - Password: password
+    ```
+  - I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
+    ```
+    - Hostname: 127.0.0.1
+    - Port: 3306
+    - Username: root
+    - Password: root
+    ```
+</details>
+
+---
+	
+<details>
+	<summary><h2> Option 2: Starting and Connecting to MySQL Server </h2></summary>
+
 - To start the server you installed in Step 1…
 - Make sure the MySQL Service is running. This will be the case, unless you disabled it during installation. 
 	- To start the MySQL Service, if you did disable this 
