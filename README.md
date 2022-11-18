@@ -151,8 +151,10 @@
 
 <details>
 	<summary><h2> Option 1: Connecting MySQL to Docker Container </h2></summary>
+### Ensure Docker is Running
 - Make sure your docker container is running (see previous section.)
   - After initial setup, this should be as easy as running `docker compose up -d`
+### Connect on Workbench
 - In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
 - The connection settings can be found in the dockercompose.yml file.
   - Unless you changed them, they are here:
@@ -169,6 +171,7 @@
     - Username: root
     - Password: root
     ```
+
 </details>
 
 ---
