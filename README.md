@@ -157,20 +157,20 @@
 ### Connect on Workbench
 - In MySQL Workbench, go to `MySQL Connections` and hit the + Icon
 - The connection settings can be found in the dockercompose.yml file.
-  - Unless you changed them, they are here:
-    ```
-    - Hostname: 127.0.0.1
-    - Port: 3306
-    - Username: user
-    - Password: password
-    ```
-  - I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
-    ```
-    - Hostname: 127.0.0.1
-    - Port: 3306
-    - Username: root
-    - Password: root
-    ```
+- Unless you changed them, they are here:
+```
+- Hostname: 127.0.0.1
+- Port: 3306
+- Username: user
+- Password: password
+```
+- I recommend also connecting as root, to have a user with elevated privledges. You can create a second connection the same way. 
+```
+- Hostname: 127.0.0.1
+- Port: 3306
+- Username: root
+- Password: root
+```
 
 </details>
 
