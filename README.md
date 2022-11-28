@@ -6,13 +6,20 @@
 
 <details>
 	<summary><h2> Option 1: Docker </h2></summary>
-
+## Step 1
 - Clone this repository.
+
+## Step 2
 ### Rancher Desktop (recommended)
 - I recommend using Rancher Desktop, as the installation process has been much smoother in the past for students.
 - Get the latest version [here](https://rancherdesktop.io/)
   - You do not need to enable Kubernetes
   - Be sure to select `dockerd (moby)` as your Container Runtime.
+
+- To verify that you are set up for Docker, launch the Dkocker Desktop application, wait for the loading bars in the lower left to finish updates. 
+- Next, go to File -> Preferences -> Container Engine
+  - Make sure that "dockerd (moby)" is selected.
+  - Under -> Kubernetes, you can uncheck the box that says "Enable Kubernetes"
   
 ### Docker Desktop (you only need either Rancher Desktop OR Docker Desktop, not both).
 - Install Docker Desktop (https://docs.docker.com/engine/install/)
@@ -24,7 +31,7 @@
 ## Running the Docker Container
 - Ensure Rancher Desktop is running.
 - BEFORE you create the container, be sure to add any desired setup files to the setup_scripts directory.
-- From the root of the project, run 
+- Open this project in an IDE like VS Code or IntelliJ. From that IDE, open a command line. Then, from the root directory of the project (which should be where it opens to by default), run 
 > `docker compose up -d`
 - Breaking down the parts of the command...
   - The `-d` flag is optional, and is used to run in detached mode, (to not keep the command line tied up.)
