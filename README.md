@@ -6,8 +6,8 @@
 
 <details>
 	<summary><h2> Option 1: Docker </h2></summary>
-## Step 1
 
+## Step 1
 - Clone this repository.
 
 ## Step 2
