@@ -1,6 +1,6 @@
 # creates the cooking database and the relevant tables
 
-CREATE DATABASE cooking IF NOT EXISTS;
+CREATE DATABASE IF NOT EXISTS cooking;
 
 use cooking;
 
