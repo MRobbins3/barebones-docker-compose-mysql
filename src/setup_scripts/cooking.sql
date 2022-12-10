@@ -14,7 +14,7 @@ CREATE TABLE recipes (
   servings int, 
   cooking_time int,
   prep_time int,
-  PRIMARY KEY (recipe_name, recipe_creator)
+  CONSTRAINT PK_Recipes PRIMARY KEY (recipe_name, recipe_creator)
 );
 
 INSERT INTO recipes VALUES 
@@ -64,9 +64,9 @@ CREATE TABLE recipe_ingredients (
   ingredient_id int NOT NULL,
   quantity numeric, 
   qunatity_unit, varchar(15),
-  PRIMARY KEY (recipe_name, recipe_creator, ingredient_id),
-  FOREIGN KEY (recipe_name, recipe_creator) REFERENCES recipes (recipe_name, recipe_creator),
-  FOREIGN KEY (ingredient_id) REFERENCES igredients (ingredient_id)
+  CONSTRAINT PK_recipe_ingredients PRIMARY KEY (recipe_name, recipe_creator, ingredient_id),
+  CONSTRAINT FK_RecipeNameCreator FOREIGN KEY (recipe_name, recipe_creator) REFERENCES recipes (recipe_name, recipe_creator),
+  CONSTRAINT FK_ingredient_id FOREIGN KEY (ingredients_id) REFERENCES ingredients (ingredient_id)
 );
 
 INSERT INTO recipe_ingredients VALUES
