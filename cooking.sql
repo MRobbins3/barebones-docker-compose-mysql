@@ -10,14 +10,15 @@ CREATE TABLE recipes (
   servings int, 
   cooking_time int,
   prep_time int,
-  PRIMARY_KEY(recipe_name, recipe_creator)
+  PRIMARY KEY (recipe_name, recipe_creator)
 );
 
 CREATE TABLE ingredients (
   ingredient_id int NOT NULL AUTO_INCREMENT,
   name varchar(40) NOT NULL,
   category varchar(30), 
-  location varchar(20)
+  location varchar(20),
+  PRIMARY KEY (ingredient_ID)
 );
 
 CREATE TABLE recipe_ingredients (
@@ -25,5 +26,8 @@ CREATE TABLE recipe_ingredients (
   recipe_creator varchar(30) NOT NULL,
   ingredient_id int NOT NULL,
   quantity int, 
-  qunatity_unit
+  qunatity_unit,
+  PRIMARY KEY (recipe_name, recipe_creator, ingredient_id),
+  FOREIGN KEY (recipe_name, recipe_creator) REFERENCES recipes (recipe_name, recipe_creator),
+  FOREIGN KEY (ingredient_id) REFERENCES igredients (ingredient_id)
 );
