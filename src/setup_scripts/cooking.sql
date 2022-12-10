@@ -63,10 +63,10 @@ CREATE TABLE recipe_ingredients (
   recipe_creator varchar(30) NOT NULL,
   ingredient_id int NOT NULL,
   quantity numeric, 
-  qunatity_unit, varchar(15),
+  qunatity_unit varchar(15),
   CONSTRAINT PK_recipe_ingredients PRIMARY KEY (recipe_name, recipe_creator, ingredient_id),
   CONSTRAINT FK_RecipeNameCreator FOREIGN KEY (recipe_name, recipe_creator) REFERENCES recipes (recipe_name, recipe_creator),
-  CONSTRAINT FK_ingredient_id FOREIGN KEY (ingredients_id) REFERENCES ingredients (ingredient_id)
+  CONSTRAINT FK_ingredient_id FOREIGN KEY (ingredient_id) REFERENCES ingredients (ingredient_id)
 );
 
 INSERT INTO recipe_ingredients VALUES
@@ -94,7 +94,5 @@ INSERT INTO recipe_ingredients VALUES
 ('Pumpkin Bars', 'Carly Duytschaver', 19, 2, 'tsp'),
 ('Pumpkin Bars', 'Carly Duytschaver', 20, 1, 'tsp'),
 ('Pumpkin Bars', 'Carly Duytschaver', 7, 2, 'tsp'),
-('Pumpkin Bars', 'Carly Duytschaver', 5, 0.5, 'tsp'),
+('Pumpkin Bars', 'Carly Duytschaver', 5, 0.5, 'tsp')
 ;
-
-
